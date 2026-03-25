@@ -1,4 +1,6 @@
 import json
+from os import mkdir
+from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
@@ -21,6 +23,9 @@ def get_monsters() -> list[str]:
 
     for link in links:
         monsters.append(link.text)
+
+    if not Path("output/").exists():
+        mkdir("output/")
 
     with open("output/monsters.json", "w") as file:
         json.dump(monsters, file)
