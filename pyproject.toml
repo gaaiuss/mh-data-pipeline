@@ -6,7 +6,11 @@ readme = "README.md"
 license = "MIT"
 authors = [{ name = "gaaiuss", email = "caio.gui.castro@gmail.com" }]
 requires-python = ">=3.14"
-dependencies = ["python-dotenv>=1.1.0"]
+dependencies = [
+    "bs4>=0.0.2",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.5",
+]
 
 [project.urls]
 
@@ -14,7 +18,7 @@ dependencies = ["python-dotenv>=1.1.0"]
 dev = ["ruff", "pyright", "pytest", "pytest-xdist"]
 
 [project.scripts]
-mh-data-pipeline = "my_package.my_module:run_from_script"
+mh-data-pipeline = "main:run_pipeline"
 
 [tool.ruff]
 line-length = 88
@@ -72,7 +76,7 @@ indent-style = "space"
 line-ending = "lf"
 
 [tool.ruff.lint.isort]
-known-first-party = ["my_package"]
+known-first-party = [""]
 
 [tool.pyright]
 typeCheckingMode = "strict"
